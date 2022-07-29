@@ -10,3 +10,7 @@ Add the helm repository.
 Install a chart.
 
 `helm install digital-land-platform digital-land/web-application`
+
+Preview a helm chart.
+
+`helm template -f examples/digital-land-platform/values.yaml digital-land-platform digital-land/web-application`
