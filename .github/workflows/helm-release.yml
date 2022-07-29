@@ -21,6 +21,6 @@ jobs:
         with:
           version: v3.9.2
 
-      - uses: helm/chart-releaser-action@v1
+      - uses: helm/chart-releaser-action@v1.4.0
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
