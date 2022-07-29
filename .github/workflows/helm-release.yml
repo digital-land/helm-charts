@@ -1,0 +1,26 @@
+name: helm-release
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  release:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: git/setup
+        run: |
+          git config user.name digital-land-bot
+          git config user.email digital-land-bot@users.noreply.github.com
+
+      - uses: azure/setup-helm@v3
+        with:
+          version: v3.9.2
+
+      - uses: helm/chart-releaser-action@v1
+        env:
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
