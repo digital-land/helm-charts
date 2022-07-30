@@ -1,18 +1,46 @@
-# values for digital-land web-application.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
 replicaCount: 1
 
-image:
-  repository: public.ecr.aws/l6z6v3j6/digital-land-platform
-  pullPolicy: Always
-  tag: staging
-
-
-imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
+
+application:
+  image:
+    repository: public.ecr.aws/l6z6v3j6/digital-land-platform
+    pullPolicy: Always
+    tag: staging
+  environment:
+    - name: S3_HOISTED_BUCKET
+      valueFrom:
+        secretKeyRef:
+          name: digital-land-platform
+          key: S3_HOISTED_BUCKET
+    - name: S3_COLLECTION_BUCKET
+      valueFrom:
+        secretKeyRef:
+          name: digital-land-platform
+          key: S3_COLLECTION_BUCKET
+    - name: WRITE_DATABASE_URL
+      valueFrom:
+        secretKeyRef:
+          name: digital-land-platform
+          key: WRITE_DATABASE_URL
+    - name: READ_DATABASE_URL
+      valueFrom:
+        secretKeyRef:
+          name: digital-land-platform
+          key: READ_DATABASE_URL
+    - name: ENVIRONMENT
+      valueFrom:
+        secretKeyRef:
+          name: digital-land-platform
+          key: ENVIRONMENT
+    - name: DATASETTE_URL
+      valueFrom:
+        secretKeyRef:
+          name: digital-land-platform
+          key: DATASETTE_URL
+    - name: PORT
+      value: '80'
 
 serviceAccount:
   # Specifies whether a service account should be created
