@@ -9,6 +9,7 @@ application:
     repository: nginx
     pullPolicy: IfNotPresent
     tag: ""
+  environment: []
 
 imagePullSecrets: []
 nameOverride: ""
