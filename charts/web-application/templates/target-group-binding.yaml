@@ -1,0 +1,19 @@
+{{- if .Values.awsLoadBalancerBinding.enabled -}}
+{{- $fullName := include "web-application.fullname" . -}}
+{{- $svcPort := .Values.service.port -}}
+apiVersion: elbv2.k8s.aws/v1beta1
+kind: TargetGroupBinding
+metadata:
+  name: {{ $fullName }}
+  labels:
+    {{- include "web-application.labels" . | nindent 4 }}
+  {{- with .Values.awsLoadBalancerBinding.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  serviceRef:
+    name: {{ $fullName }}
+    port: {{ $svcPort }}
+  targetGroupARN: "{{- .Values.awsLoadBalancerBinding.targetGroupARN }}"
+{{- end }}
