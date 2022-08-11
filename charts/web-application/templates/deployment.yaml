@@ -53,9 +53,6 @@ spec:
             httpGet:
               path: /
               port: http
-              httpHeaders:
-              - name: Host
-                value: {{ .Values.nextcloud.host | quote }}
             initialDelaySeconds: {{ .Values.startupProbe.initialDelaySeconds }}
             periodSeconds: {{ .Values.startupProbe.periodSeconds }}
             timeoutSeconds: {{ .Values.startupProbe.timeoutSeconds }}
