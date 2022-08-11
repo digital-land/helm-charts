@@ -3,6 +3,16 @@ entries:
   web-application:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2022-08-11T13:36:16.655285662Z"
+    description: A Helm chart to manage deployment of digital land web applications
+    digest: 8f2767309a484876b68de646245754062dd64322136417863111759a9c94ad8b
+    name: web-application
+    type: application
+    urls:
+    - https://github.com/digital-land/helm-charts/releases/download/web-application-0.1.5/web-application-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2022-08-10T13:51:56.861144012Z"
     description: A Helm chart to manage deployment of digital land web applications
     digest: 7bf14ad5afcfe4d083aa81517924a0ce98f7c5f8e15f347e964ecd5cdcb64dbb
@@ -31,4 +41,4 @@ entries:
     urls:
     - https://github.com/digital-land/helm-charts/releases/download/web-application-0.1.1/web-application-0.1.1.tgz
     version: 0.1.1
-generated: "2022-08-10T13:51:56.861158112Z"
+generated: "2022-08-11T13:36:16.655298262Z"
