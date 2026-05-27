@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -22,10 +22,10 @@ jobs:
           git config user.name digital-land-bot
           git config user.email digital-land-bot@users.noreply.github.com
 
-      - uses: azure/setup-helm@v3
+      - uses: azure/setup-helm@v5
         with:
           version: v3.9.2
 
-      - uses: helm/chart-releaser-action@v1.4.0
+      - uses: helm/chart-releaser-action@v1.7.0
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
